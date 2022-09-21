@@ -105,15 +105,44 @@ supText
 
 ```
 
-#### 
 
-### HTML setup
+### HTML Setup
 
 For each page we generate/ create with html elements using javascript. We want to have a basic predefined setup. 
 
 We will be starting with a basic html page that has bootstrap css and js tags.
 
-Using Javascript HTML DOM we can edit the DOM 
+Using Javascript HTML DOM we can edit the DOM.
+
+We create the name and html element that will go in the body of our DOM and relate it to keys within our objects.
+
+**EX:** <br />
+`currentPage = 0`
+```
+pageOne {
+    
+    titleText: "I can read your mind", 
+    grButton: 'Go',
+    nrButton: 'none',
+    helperText: 'none',
+    supText: 'none
+}
+```
+`HTML Elements`
+```
+<h1 id="titleText"></h1>
+<button id="grButton"></button>
+```
+
+if key in object is equal to string 'none' dont make a html element
+
+#### INIT HTML SetUp Javascript DOM
+
+```
+add a id to body 'bodyid'
+
+```
+
 
 ### Func
 
