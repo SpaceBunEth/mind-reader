@@ -136,18 +136,31 @@ pageOne {
 
 if key in object is equal to string 'none' dont make a html element
 
-#### INIT HTML SetUp Javascript DOM
+#### INIT HTML SetUp Javascript DOM (At Start Up)
 
 ```
 add a id to body 'bodyid'
-
+set var htmlBody to htmlelementbyid 'body'
+set object.currentPage to equal 0
+run function update()
 ```
-
 
 ### Func
 
+UPDATE()
+
+```
+htmlBody.appendchild('')
 
 
 
+
+const titleText
+const grButton
+const nrButton
+const helperText
+const supText
+
+```
 
 
