@@ -19,12 +19,84 @@ We are going to break down our Mind Reader program into pseudocode. We'll start 
 
 Javascript has the ability to write, delete, and change html and css to our DOM, which would allow us to change elements on the page without refreshing the page. [View this article](https://www.educative.io/answers/how-to-add-an-id-to-element-in-javascript) for creating HTML Element with JS.
 
+We will be laying the elements and states of what our program will hold. 
+Looking at the MindReader Adobe XD wireframe. We can visually see certian changes occur when the buttons are pressed. 
 
+Here are some 'elements' of the wireframe that we can use to help create our states and beginning logic. 
 
+The visual changes we see can be sectioned out into these 'elements'
 
+- Title Text
+- go/refresh Button
+- Next/Reveal Button
+- Helper Text
+- Sup Text
 
+To create the actual 'Mind Reading' part of the program we need to remember the random displayed symbols that will be paired with a random number 0 - 99. Except for one symbol that will be paired with all multiples of 9. 
 
+How do we now which number is a multiple of 9? We can use the javascript % remainder operator to test whether if a number is a mulitple of 9.
+If we get a remainder other then 0 we can determine it is not a multiple of 9.
+
+- Numbers 0 - 99 list
+- Symbols, exclude one symbol for the mulitples of 9 
+- Mulitples of 9
+- Pair special symbol to the mulitples of 9
+- insert back into the list of Numbers
+
+Now we need to remember the logic and state of our page.  
+We need a way to keep track of our pages and which page should be displayed on the current html DOM. One way we can keep of our page is to have a list that holds the index of pages. In this program we have 6 different pages or states of out page.
+The information or state a single page would hold is
+
+- PageIndex: value 0-5
+- currentPage: the current page being viewed
+- specialSymbol: ex: &
+- symArray: list of symbols
+- numArray: Numbers list 0 - 99
+- - Obj Based on PageIndex: 
+    - Title Text
+    - go/refresh Button
+    - Next/Reveal Button
+    - Helper Text
+    - Sup Text
+
+Notes:
+
+Func: generate a random number between index of symArray, insert new random symbol into long 0-99 array
+
+Func: use symbol list index for random numbers, if index of special symbol is a multiple of 9 then replace random symbol with special symbol.
+
+Func: Handler for when html needs to change we can reference our data from our "OBJ Based on PageIndex" might be called Update()
+
+### 
 
 
 ## INIT()
 
+### States
+
+#### States of HTML Elements that will change in DOM:
+
+```
+titleText
+grButton
+nrButton
+helperText
+supText
+
+```
+
+#### States that manage HTML Elements:
+
+```
+pageIndex
+currentPage
+specialSymbol
+symArray:
+```
+- Create a object to manage the state of each page, 6 pages 6 objects in total.
+
+Object contents are HTML Element States with current page value
+
+
+
+#### 
