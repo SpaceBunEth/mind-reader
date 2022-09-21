@@ -142,6 +142,13 @@ if key in object is equal to string 'none' dont make a html element
 add a id to body 'bodyid'
 set var htmlBody to htmlelementbyid 'body'
 set object.currentPage to equal 0
+
+const titleTextElem = document.createElement('h1')
+const grButtonElem = document.createElement('button')
+const nrButtonElem = document.createElement('button')
+const helperTextElem = document.createElement('h3')
+const supTextElem = document.createElement('h3')
+
 run function update()
 ```
 
@@ -155,11 +162,7 @@ htmlBody.appendchild('')
 
 
 
-const titleText
-const grButton
-const nrButton
-const helperText
-const supText
+
 
 ```
 
