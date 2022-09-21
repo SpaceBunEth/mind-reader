@@ -47,12 +47,12 @@ Now we need to remember the logic and state of our page.
 We need a way to keep track of our pages and which page should be displayed on the current html DOM. One way we can keep of our page is to have a list that holds the index of pages. In this program we have 6 different pages or states of out page.
 The information or state a single page would hold is
 
-- PageIndex: value 0-5
+
 - currentPage: the current page being viewed
 - specialSymbol: ex: &
 - symArray: list of symbols
 - numArray: Numbers list 0 - 99
-- - Obj Based on PageIndex: 
+- Array Based PageIndex: 
     - Title Text
     - go/refresh Button
     - Next/Reveal Button
@@ -66,8 +66,6 @@ Func: generate a random number between index of symArray, insert new random symb
 Func: use symbol list index for random numbers, if index of special symbol is a multiple of 9 then replace random symbol with special symbol.
 
 Func: Handler for when html needs to change we can reference our data from our "OBJ Based on PageIndex" might be called Update()
-
-### 
 
 
 ## INIT()
@@ -88,15 +86,39 @@ supText
 #### States that manage HTML Elements:
 
 ```
-pageIndex
+
 currentPage
 specialSymbol
-symArray:
+symArray
+pageIndex
 ```
-- Create a object to manage the state of each page, 6 pages 6 objects in total.
+ In 'pageIndex' list Create a Javascript object to manage the state of each page, 6 pages 6 objects in total.
 
-Object contents are HTML Element States with current page value
+Object contents are HTML Element States with currentPage value pointing to the index within pageIndex. 
 
+```
+titleText
+grButton
+nrButton
+helperText
+supText
 
+```
 
 #### 
+
+### HTML setup
+
+For each page we generate/ create with html elements using javascript. We want to have a basic predefined setup. 
+
+We will be starting with a basic html page that has bootstrap css and js tags.
+
+Using Javascript HTML DOM we can edit the DOM 
+
+### Func
+
+
+
+
+
+
