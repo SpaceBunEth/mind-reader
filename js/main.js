@@ -67,40 +67,36 @@ mindReader.currentPage = 0;
 //Update DOM State 
 function Update() {
     //TO_DO need to clear DOM before this runs
-    if (mindReader.pageIndex[mindReader.currentPage].titleText === 'none' && document.getElementById('titleText') == true) {
-        console.log('update() do nothing');
-        htmlBody.removeChild(document.getElementById('titleText'));
+    if (mindReader.pageIndex[mindReader.currentPage].titleText == 'none') {
+        clearDom('titleText');
     } else {
         htmlBody.appendChild(titleTextElem);
         titleTextElem.setAttribute('id', 'titleText');
         document.getElementById('titleText').innerHTML = mindReader.pageIndex[mindReader.currentPage].titleText;
     }
-    if (mindReader.pageIndex[mindReader.currentPage].nrButton) {
+    if (mindReader.pageIndex[mindReader.currentPage].nrButton == 'none') {
         clearDom('nrButton');
     } else {
         htmlBody.appendChild(nrButtonElem);
         nrButtonElem.setAttribute('id','nrButton');
         document.getElementById('nrButton').innerHTML = mindReader.pageIndex[mindReader.currentPage].nrButton;
     }
-    if (mindReader.pageIndex[mindReader.currentPage].helperText === 'none' && document.getElementById('helperText') == true) {
-        console.log('update() do nothing');
-        htmlBody.removeChild(document.getElementById('helperText'));
+    if (mindReader.pageIndex[mindReader.currentPage].helperText == 'none') {
+        clearDom('helperText');
     } else {
         htmlBody.appendChild(helperTextElem);
         helperTextElem.setAttribute('id','helperText');
         document.getElementById('helperText').innerHTML = mindReader.pageIndex[mindReader.currentPage].helperText;
     }
-    if (mindReader.pageIndex[mindReader.currentPage].supText === 'none' && document.getElementById('supText') == true) {
-        console.log('update() do nothing');
-        htmlBody.removeChild(document.getElementById('supText'));
+    if (mindReader.pageIndex[mindReader.currentPage].supText == 'none') {
+        clearDom('supText');
     } else {
         htmlBody.appendChild(supTextElem);
         supTextElem.setAttribute('id','supText');
         document.getElementById('supText').innerHTML = mindReader.pageIndex[mindReader.currentPage].supText
     }
-    if (mindReader.pageIndex[mindReader.currentPage].grButton === 'none' && document.getElementById('grButton') == true) {
-        console.log('update() do nothing');
-        htmlBody.removeChild(document.getElementById('grButton'));
+    if (mindReader.pageIndex[mindReader.currentPage].grButton == 'none') {
+        clearDom('grButton');
     } else {
         htmlBody.appendChild(grButtonElem);
         grButtonElem.setAttribute('id','grButton');
@@ -109,12 +105,7 @@ function Update() {
 }
 
 function clearDom(elementId) {
-    console.log(elementId)
-    if (document.getElementById(elementId) == null){
-        return
-    }
-
-    if (document.getElementById(elementId).id == true){
+    if (document.getElementById(elementId) !== null){
         htmlBody.removeChild(document.getElementById(elementId));
     }
 }
