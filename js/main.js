@@ -16,18 +16,40 @@ const mindReader = {
     symArray: ['!','@','#','$','%','^','*','~','?'],
     pageIndex: [
         pageOne={
-            titleText: "",
+            titleText: '',
+            grButton: '',
+            nrButton: '',
+            helperText: '',
+            supText: '',
+        },
+        pageTwo={
+            titleText: '',
+            grButton: '',
+            nrButton: '',
+            helperText: '',
+            supText: '',
+        },
+        pageThree={
+            titleText: '',
+            grButton: '',
+            nrButton: '',
+            helperText: '',
+            supText: '',
+        },
+        pageFour={
+            titleText: '',
+            grButton: '',
+            nrButton: '',
+            helperText: '',
+            supText: '',
+        },
+        pageFive={
+            titleText: '',
+            grButton: '',
+            nrButton: '',
+            helperText: '',
+            supText: '',
         }
-
-
-
-
-
-
-
-
-
-
     ]
 
 }
