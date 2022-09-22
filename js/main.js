@@ -15,6 +15,7 @@ const mindReader = {
     specialSymbol: '&',
     symArray: ['!','@','#','$','%','^','*','~','?'],
     pageIndex: [
+        //States of the 6 different pages for 'Mind Reader Program'
         pageOne={
             titleText: 'I can read your mind',
             grButton: 'Go',
@@ -66,7 +67,9 @@ mindReader.currentPage = 0;
 
 //Update DOM State 
 function Update() {
-    //TO_DO need to clear DOM before this runs
+    //If else statement for each state of HTML elements on the DOM in body
+    // Will either create a html element based on state from mindReader.pageIndex[mindReader.currentPage]
+    // Or run a funtion to clear that html element if the pageIndex array object is 'none' 
     if (mindReader.pageIndex[mindReader.currentPage].titleText == 'none') {
         clearDom('titleText');
     } else {
@@ -104,21 +107,13 @@ function Update() {
     }
 }
 
+// Clearing Dom of HTML Elements
+// Will Check if and HTML Element with an id passed through elementId is a null value or not
+// If not and a HTML Element with that id is present the function clearDom will delete it from the Dom
 function clearDom(elementId) {
     if (document.getElementById(elementId) !== null){
         htmlBody.removeChild(document.getElementById(elementId));
     }
 }
 
-//uwu
-/* //Needs to happen 5 times for each key in the objects page.
-
-If Object MindReader => PageIndex Arry => Object Page 0[currentPage value] => Key TitleText 
-    Is equal to 'none'
-    Do not appendchild html element
-Else
-    htmlbody.appendchild(titleTextElem)
-    titleTextElem.setAttribute('id', 'titleText')
-    document.getElementById("titleText").innerHTML = The value of Object MindReader => PageIndex Arry => Object Page 0[currentPage value] => Key TitleText;
-*/
 Update()
