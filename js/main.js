@@ -63,6 +63,8 @@ const mindReader = {
 
 }
 
+
+
 //Update DOM State 
 function Update() {
     console.log('Update')
@@ -141,9 +143,8 @@ function grButtonClick() {
         console.log('grButton Move to Next Page')
         Update();
     } else if (mindReader.currentPage === 5) { // Goes to page 1 when user reaches the end
-        mindReader.currentPage = 0;
         console.log('Play Again?')
-        Update();
+        reset();
     } else {                    // Removes all children in DOM under body 
         htmlBody.innerHTML = '';
         console.log('emptyDOM');
@@ -195,12 +196,27 @@ function replaceNines() {
     }
 }
 
-rndNum()
-replaceNines()
+// Helper Function for displaying content in the correct format on DOM.
+function formatTitleText() {
+    let holderString;
+    for (let i = 0; i <= 99; i++){
+        holderString = i + ' - ' + mindReader.symArray[i] + '\n';
+        mindReader.symArray[i] = holderString;
+        console.log(holderString)
+    }
+}
 mindReader.pageIndex[4].titleText = mindReader.symArray
 
 
 
+// Reset the mindReader Object back to default to run program again
+function reset() {
 
+}
+
+// INIT()
+rndNum()
+replaceNines()
+formatTitleText()
 Update();
 
