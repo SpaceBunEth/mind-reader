@@ -163,18 +163,29 @@ function nrButtonClick() {
     }
 }
 
-// Random Number Functions
+// Random Number Helper Function
 
-
-/*
-Call function randomNumber {
-    for (let i = 0; i < 100; i++){
-        const holderSymbol = Math.floor(Math.random() * symArray.lendth);
-        add holderSymbol to symArray; symArray.push(holderSymbol)
+// Not the same as pseudo had to add another var and change some logic
+function rndNum() {
+    for (let i = 0; i < 91; i++){// repeats 100 times
+        const holderNumber = Math.round(Math.random() * mindReader.symArray.length); // get a random number rang from 0 to the .length of symArray,
+        const holderSymbol = mindReader.symArray[holderNumber]; 
+        while (holderSymbol == undefined){ // had and issue of getting 'undefined' values in array used to while to fix that.
+            const holderNumber = Math.round(Math.random() * mindReader.symArray.length); // get a random number rang from 0 to the .length of symArray,
+            const holderSymbol = mindReader.symArray[holderNumber];
+        }
+        mindReader.symArray.push(holderSymbol); // adds the new random symbol to the array
     }
 }
 
-*/
+// Mulitples of Nine Helper Function
+
+// Replace mulitples of 9 in mindReader.symArray with mindReader.specialSymbol
+
+
+
+
+
 
 
 Update();
