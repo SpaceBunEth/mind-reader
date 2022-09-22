@@ -163,7 +163,18 @@ function nrButtonClick() {
     }
 }
 
+// Random Number Functions
 
+
+/*
+Call function randomNumber {
+    for (let i = 0; i < 100; i++){
+        const holderSymbol = Math.floor(Math.random() * symArray.lendth);
+        add holderSymbol to symArray; symArray.push(holderSymbol)
+    }
+}
+
+*/
 
 
 Update();
