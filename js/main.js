@@ -53,7 +53,7 @@ const mindReader = {
         },
         pageSix={
             titleText: 'specialSymbol',
-            grButton: 'refresh',
+            grButton: 'Refresh',
             nrButton: 'none',
             helperText: 'Your Symbol is:',
             supText: 'specialSymbol',
@@ -66,10 +66,7 @@ const mindReader = {
 //Update DOM State 
 function Update() {
     console.log('Update')
-    //Resets the value of currentPage so the user will loop through the program endlessly 
-    if (mindReader.currentPage >= 5){
-        mindReader.currentPage = 0;
-    }
+    console.log('Page ', mindReader.currentPage)
     //If else statement for each state of HTML elements on the DOM in body
     // Will either create a html element based on state from mindReader.pageIndex[mindReader.currentPage]
     // Or run a funtion to clear that html element if the pageIndex array object is 'none' 
@@ -136,25 +133,29 @@ mindReader.currentPage = 0;
 
 // grButton clickEvent
 function grButtonClick() {
-    console.log(mindReader.pageIndex[mindReader.currentPage].grButton);
-    
-    document.getElementById('grButton').removeEventListener;
 
-    if (mindReader.pageIndex[mindReader.currentPage].grButton === 'Go'){
+    document.getElementById('grButton').removeEventListener('click', grButtonClick);// removes event
+
+    if (mindReader.pageIndex[mindReader.currentPage].grButton === 'Go'){ // Moves to next page
         mindReader.currentPage = mindReader.currentPage + 1;
         console.log('grButton Move to Next Page')
         Update();
-    }
-
-    if (mindReader.pageIndex[mindReader.currentPage].grButton === 'Refresh'){
-        console.log('grButton Refresh DOM')
+    } else if (mindReader.currentPage === 5) { // Goes to page 1 when user reaches the end
+        mindReader.currentPage = 0;
+        console.log('Play Again?')
+        Update();
+    } else {                    // Removes all children in DOM under body 
+        htmlBody.innerHTML = '';
+        console.log('emptyDOM');
         Update();
     }
+
+ 
 }
 
 // nrButton clickEvent
 function nrButtonClick() {
-    document.getElementById('nrButton').removeEventListener('click', nrButtonClick);
+    document.getElementById('nrButton').removeEventListener('click', nrButtonClick);// removes event
     if (mindReader.pageIndex[mindReader.currentPage].nrButton == 'Next' || mindReader.pageIndex[mindReader.currentPage].nrButton == 'Reveal'){
         mindReader.currentPage = mindReader.currentPage + 1;
         console.log('nrButton Move to Next Page');
