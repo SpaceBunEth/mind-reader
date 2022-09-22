@@ -66,6 +66,7 @@ const mindReader = {
 //Update DOM State 
 function Update() {
     console.log('Update')
+    //Resets the value of currentPage so the user will loop through the program endlessly 
     if (mindReader.currentPage >= 5){
         mindReader.currentPage = 0;
     }
@@ -127,54 +128,42 @@ function clearDom(elementId) {
 //set currentPage = 0 Which is our pageOne object state
 mindReader.currentPage = 0;
 
-//revised event click listener functions different from pseudocode
+//Click Event Listeners for buttons Line 130 - 162
 
+//revised event click listener functions different from pseudocode
+// Had to add a removeEventListener to avoid a infinate loop
+// The DOM completely re-writes itself every time Update() function is ran
+
+// grButton clickEvent
 function grButtonClick() {
     console.log(mindReader.pageIndex[mindReader.currentPage].grButton);
     
     document.getElementById('grButton').removeEventListener;
-    console.log('end event grButton')
 
     if (mindReader.pageIndex[mindReader.currentPage].grButton === 'Go'){
         mindReader.currentPage = mindReader.currentPage + 1;
-
+        console.log('grButton Move to Next Page')
         Update();
     }
 
     if (mindReader.pageIndex[mindReader.currentPage].grButton === 'Refresh'){
-;
+        console.log('grButton Refresh DOM')
         Update();
     }
 }
 
-function nrButtonClick() {
-    console.log('hello nrButton');
-    document.getElementById('nrButton').removeEventListener('click', nrButtonClick);
-    console.log('end event nrButton');
-    if (mindReader.pageIndex[mindReader.currentPage].nrButton == 'Next' || mindReader.pageIndex[mindReader.currentPage].nrButton == 'Reveal'){
-        console.log('Works');
-        mindReader.currentPage = mindReader.currentPage + 1;
-        Update();
-    }
-}
-
-
-/* // grButton clickEvent
-document.getElementById("grButton").addEventListener('click', () => {
-    if Obj mindReader, pageIndex[currentPage],Obj page # key 'Go'
-        Obj-path to currentPage = currnetPage + 1
-        Update()
-    else 
-        Update()
-        
-}
 // nrButton clickEvent
-document.getElementById("nrButton").addEventListener('click', () => {
-    if Obj mindReader, pageIndex[currentPage],Obj page # key 'next' || 'reveal'
-        Obj-path to currentPage = currnetPage + 1
-        Update()
-    else 
-        Update()*/
+function nrButtonClick() {
+    document.getElementById('nrButton').removeEventListener('click', nrButtonClick);
+    if (mindReader.pageIndex[mindReader.currentPage].nrButton == 'Next' || mindReader.pageIndex[mindReader.currentPage].nrButton == 'Reveal'){
+        mindReader.currentPage = mindReader.currentPage + 1;
+        console.log('nrButton Move to Next Page');
+        Update();
+    }
+}
+
+
+
 
 Update();
 
