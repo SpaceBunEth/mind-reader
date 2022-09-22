@@ -51,11 +51,11 @@ const mindReader = {
             supText: 'Note the symbol beside the new number',
         },
         pageSix={
-            titleText: specialSymbol,
+            titleText: 'specialSymbol',
             grButton: 'refresh',
             nrButton: 'none',
             helperText: 'Your Symbol is:',
-            supText: specialSymbol,
+            supText: 'specialSymbol',
         },
 
     ]
@@ -65,6 +65,59 @@ const mindReader = {
 mindReader.currentPage = 0;
 
 //Update DOM State 
+function Update() {
+    //TO_DO need to clear DOM before this runs
+    if (mindReader.pageIndex[mindReader.currentPage].titleText === 'none' && document.getElementById('titleText') == true) {
+        console.log('update() do nothing');
+        htmlBody.removeChild(document.getElementById('titleText'));
+    } else {
+        htmlBody.appendChild(titleTextElem);
+        titleTextElem.setAttribute('id', 'titleText');
+        document.getElementById('titleText').innerHTML = mindReader.pageIndex[mindReader.currentPage].titleText;
+    }
+    if (mindReader.pageIndex[mindReader.currentPage].nrButton) {
+        clearDom('nrButton');
+    } else {
+        htmlBody.appendChild(nrButtonElem);
+        nrButtonElem.setAttribute('id','nrButton');
+        document.getElementById('nrButton').innerHTML = mindReader.pageIndex[mindReader.currentPage].nrButton;
+    }
+    if (mindReader.pageIndex[mindReader.currentPage].helperText === 'none' && document.getElementById('helperText') == true) {
+        console.log('update() do nothing');
+        htmlBody.removeChild(document.getElementById('helperText'));
+    } else {
+        htmlBody.appendChild(helperTextElem);
+        helperTextElem.setAttribute('id','helperText');
+        document.getElementById('helperText').innerHTML = mindReader.pageIndex[mindReader.currentPage].helperText;
+    }
+    if (mindReader.pageIndex[mindReader.currentPage].supText === 'none' && document.getElementById('supText') == true) {
+        console.log('update() do nothing');
+        htmlBody.removeChild(document.getElementById('supText'));
+    } else {
+        htmlBody.appendChild(supTextElem);
+        supTextElem.setAttribute('id','supText');
+        document.getElementById('supText').innerHTML = mindReader.pageIndex[mindReader.currentPage].supText
+    }
+    if (mindReader.pageIndex[mindReader.currentPage].grButton === 'none' && document.getElementById('grButton') == true) {
+        console.log('update() do nothing');
+        htmlBody.removeChild(document.getElementById('grButton'));
+    } else {
+        htmlBody.appendChild(grButtonElem);
+        grButtonElem.setAttribute('id','grButton');
+        document.getElementById('grButton').innerHTML = mindReader.pageIndex[mindReader.currentPage].grButton;
+    }
+}
+
+function clearDom(elementId) {
+    console.log(elementId)
+    if (document.getElementById(elementId) == null){
+        return
+    }
+
+    if (document.getElementById(elementId).id == true){
+        htmlBody.removeChild(document.getElementById(elementId));
+    }
+}
 
 //uwu
 /* //Needs to happen 5 times for each key in the objects page.
@@ -77,3 +130,4 @@ Else
     titleTextElem.setAttribute('id', 'titleText')
     document.getElementById("titleText").innerHTML = The value of Object MindReader => PageIndex Arry => Object Page 0[currentPage value] => Key TitleText;
 */
+Update()
