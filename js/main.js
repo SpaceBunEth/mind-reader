@@ -187,7 +187,7 @@ mindReader.pageIndex[5].titleText = mindReader.specialSymbol;
 function replaceNines() {
     for (let i = 0; i < 99; i++){
         if (i % 9 == 0 || i == 0){ // if i is a multiple of 9 or equal to 0
-            mindReader.symArray[i] = mindReader.specialSymbol;
+            mindReader.symArray[i] = mindReader.specialSymbol; // replaces the item in the array with specialSymbol
             console.log('Changed Index Content', i, mindReader.symArray[i]);
         } else {
             console.log('No Change')
@@ -195,19 +195,9 @@ function replaceNines() {
     }
 }
 
-
-/* Call function replaceNines{
-    for (let i = 0; i < 99; i++){
-        if (symArray[i] % 9 == 0 || i == 0){
-            symArray[i] = SpecialSymbol;
-        } else {
-            do nothing
-        }
-
-    }
-}*/
-
-
+rndNum()
+replaceNines()
+mindReader.pageIndex[4].titleText = mindReader.symArray
 
 
 
