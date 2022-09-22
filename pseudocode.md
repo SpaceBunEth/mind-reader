@@ -192,8 +192,25 @@ Else
 ```
 Two click Event listeners will need to be added inorder to help change or refresh the page, however depending on the state of the buttons sometimes the button will change the page other times it will only refresh the page. We can call a function after the 'click' that will contain a if else statement that reads the state of the button for the current page then either + 1 to currentPage value then runs Update() or simply run update keeping the currentPage value the same.
 
-ClickEventlistener for grButton same code for nrButton
+ClickEventlistener for grButton same/ similar code for nrButton
+go into an arrow function for each click event.
+```
+// grButton clickEvent
+document.getElementById("grButton").addEventListener('click', () => {
+    if Obj mindReader, pageIndex[currentPage],Obj page # key 'Go'
+        Obj-path to currentPage = currnetPage + 1
+        Update()
+    else 
+        Update()
+        
+}
+// nrButton clickEvent
+document.getElementById("nrButton").addEventListener('click', () => {
+    if Obj mindReader, pageIndex[currentPage],Obj page # key 'next' || 'reveal'
+        Obj-path to currentPage = currnetPage + 1
+        Update()
+    else 
+        Update()
 ```
 
-```
 #### Helper functions
