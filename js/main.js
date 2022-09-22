@@ -67,6 +67,7 @@ mindReader.currentPage = 0;
 
 //Update DOM State 
 function Update() {
+    console.log('Update')
     //If else statement for each state of HTML elements on the DOM in body
     // Will either create a html element based on state from mindReader.pageIndex[mindReader.currentPage]
     // Or run a funtion to clear that html element if the pageIndex array object is 'none' 
@@ -113,7 +114,33 @@ function Update() {
 function clearDom(elementId) {
     if (document.getElementById(elementId) !== null){
         htmlBody.removeChild(document.getElementById(elementId));
+        console.log('ClearDom of' + elementId)
     }
 }
 
-Update()
+
+
+Update();
+
+//click Event Listeners for buttons grButton and nrButton
+//Click Event Listener for grButton
+document.getElementById("grButton").addEventListener('click', () => {
+    
+    if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Go'){
+        mindReader.currentPage = mindReader.currentPage + 1;
+    }
+    if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Refresh'){
+        Update();
+    }
+});
+
+//click Event Listener for nrButton
+document.getElementById("nrButton").addEventListener('click', () => {
+    
+    if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Next'){
+        mindReader.currentPage = mindReader.currentPage + 1;
+    }
+    if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Reveal'){
+        Update();
+    }
+});
