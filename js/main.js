@@ -211,6 +211,8 @@ mindReader.pageIndex[4].titleText = mindReader.symArray
 
 // Reset the mindReader Object back to default to run program again
 function reset() {
+    mindReader.currentPage = 0;
+    Update();//quick fix
 
 }
 
