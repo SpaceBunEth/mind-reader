@@ -180,7 +180,7 @@ run function update()
 UPDATE()
 
 ```
-//Needs to happen 5 times for each key in the objects page.
+//Needs to happen 6 times for each key in the objects page.
 
 If Object MindReader => PageIndex Arry => Object Page 0[currentPage value] => Key TitleText 
     Is equal to 'none'
@@ -213,4 +213,25 @@ document.getElementById("nrButton").addEventListener('click', () => {
         Update()
 ```
 
-#### Helper functions
+### Helper functions
+
+**Random Function for Symbols Array**
+
+We need a helper function to get a random number based on 0 to the current length of the array that holds our symbols, [symArray], then take that random number, const holdSymbol = symArray[randomNumber], Add value of holdSymbol to end of symArray. Repeat until symArray index value is equal to 99. 
+
+Now we have to replace all symArray index numbers that are mulitples of 9 with our special character. "&"
+
+We can do this by use the % operator in Javascript, which outputs the remainder of two Numbers. First number would be 9, second Number will be a (symArray Index Number). We could hardcode for all mulitples of 9 to be prestored and use a number of if statements but a loop 0-99 with a if 9%indexvalue == 0 then replace content of indexvalue with specialSymbol. Will be less code and easier to write.
+
+**RandomNumberFunc**
+```
+Call function RandomNumber{
+    const holderSymbol = Math.floor(Math.random() * symArray.lendth);
+    add holderSymbol to symArray; 
+}
+```
+
+
+
+
+#### 

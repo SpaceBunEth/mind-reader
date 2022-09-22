@@ -15,3 +15,5 @@ function clearPg() {
     const elemDiv = document.getElementById('div-id');
     bodyHTML.removeChild(elemDiv);
 }
+
+Math.floor(Math.random() * 5);
