@@ -66,6 +66,9 @@ const mindReader = {
 //Update DOM State 
 function Update() {
     console.log('Update')
+    if (mindReader.currentPage >= 5){
+        mindReader.currentPage = 0;
+    }
     //If else statement for each state of HTML elements on the DOM in body
     // Will either create a html element based on state from mindReader.pageIndex[mindReader.currentPage]
     // Or run a funtion to clear that html element if the pageIndex array object is 'none' 
@@ -82,7 +85,7 @@ function Update() {
         htmlBody.appendChild(nrButtonElem);
         nrButtonElem.setAttribute('id','nrButton');
         document.getElementById('nrButton').innerHTML = mindReader.pageIndex[mindReader.currentPage].nrButton;
-        document.getElementById('grButton').addEventListener('click', nrButtonClick);
+        document.getElementById('nrButton').addEventListener('click', nrButtonClick);
     }
     if (mindReader.pageIndex[mindReader.currentPage].helperText == 'none') {
         clearDom('helperText');
@@ -114,29 +117,64 @@ function Update() {
 // If not and a HTML Element with that id is present the function clearDom will delete it from the Dom
 function clearDom(elementId) {
     if (document.getElementById(elementId) !== null){
-        // htmlBody.removeChild(document.getElementById(elementId));
-        // console.log('ClearDom of' + elementId)
-        htmlBody.innerHTML = '';
-        console.log('Clear')
+        htmlBody.removeChild(document.getElementById(elementId));
+        console.log('ClearDom of' + elementId)
+        // htmlBody.innerHTML = '';
+        
     }
 }
 
 //set currentPage = 0 Which is our pageOne object state
 mindReader.currentPage = 0;
 
+//revised event click listener functions different from pseudocode
+
 function grButtonClick() {
-    console.log('hello grButon');
+    console.log(mindReader.pageIndex[mindReader.currentPage].grButton);
+    
     document.getElementById('grButton').removeEventListener;
-    console.log('end event grButton');
-    Update();
+    console.log('end event grButton')
+
+    if (mindReader.pageIndex[mindReader.currentPage].grButton === 'Go'){
+        mindReader.currentPage = mindReader.currentPage + 1;
+
+        Update();
+    }
+
+    if (mindReader.pageIndex[mindReader.currentPage].grButton === 'Refresh'){
+;
+        Update();
+    }
 }
 
 function nrButtonClick() {
     console.log('hello nrButton');
-    document.getElementById('grButton').removeEventListener('click', nrButtonClick);
+    document.getElementById('nrButton').removeEventListener('click', nrButtonClick);
     console.log('end event nrButton');
-    Update();
+    if (mindReader.pageIndex[mindReader.currentPage].nrButton == 'Next' || mindReader.pageIndex[mindReader.currentPage].nrButton == 'Reveal'){
+        console.log('Works');
+        mindReader.currentPage = mindReader.currentPage + 1;
+        Update();
+    }
 }
+
+
+/* // grButton clickEvent
+document.getElementById("grButton").addEventListener('click', () => {
+    if Obj mindReader, pageIndex[currentPage],Obj page # key 'Go'
+        Obj-path to currentPage = currnetPage + 1
+        Update()
+    else 
+        Update()
+        
+}
+// nrButton clickEvent
+document.getElementById("nrButton").addEventListener('click', () => {
+    if Obj mindReader, pageIndex[currentPage],Obj page # key 'next' || 'reveal'
+        Obj-path to currentPage = currnetPage + 1
+        Update()
+    else 
+        Update()*/
 
 Update();
 
