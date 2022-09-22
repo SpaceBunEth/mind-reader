@@ -253,4 +253,7 @@ Call function replaceNines{
 
 
 
-#### 
+### To-Do
+- reset currentPage value to everytime it incermits past 5
+- find a way to display all 0-99 symbols and numbers from symArray and symArray[indexes]
+- figure out how to get bootstrap Icons and bootstrap stylings onto DOM.
