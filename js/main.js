@@ -84,7 +84,6 @@ function Update() {
         htmlBody.appendChild(nrButtonElem);
         nrButtonElem.setAttribute('id','nrButton');
         document.getElementById('nrButton').innerHTML = mindReader.pageIndex[mindReader.currentPage].nrButton;
-        buttonEvents();
     }
     if (mindReader.pageIndex[mindReader.currentPage].helperText == 'none') {
         clearDom('helperText');
@@ -106,7 +105,6 @@ function Update() {
         htmlBody.appendChild(grButtonElem);
         grButtonElem.setAttribute('id','grButton');
         document.getElementById('grButton').innerHTML = mindReader.pageIndex[mindReader.currentPage].grButton;
-        buttonEvents();
     }
 }
 
@@ -118,6 +116,7 @@ function clearDom(elementId) {
         // htmlBody.removeChild(document.getElementById(elementId));
         // console.log('ClearDom of' + elementId)
         htmlBody.innerHTML = '';
+        console.log('Clear')
     }
 }
 
@@ -125,39 +124,49 @@ function clearDom(elementId) {
 
 Update();
 
+// function manageUpdate() {
+//     Update();
+// }
 
-function buttonEvents() {
+
+// document.getElementById('grButton').addEventListener('click', () => {
+//     if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Go'){
+//         mindReader.currentPage = mindReader.currentPage + 1;
+//         manageUpdate();
+//     }
+//     if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Refresh'){
+//         manageUpdate();
+//     }
+// });
+
+// document.getElementById('nrButton').addEventListener('click', () => {
+//     if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Next'){
+//         mindReader.currentPage = mindReader.currentPage + 1;
+//         console.log('NEXT!');
+//     }
+//     if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Reveal'){
+//         mindReader.currentPage = mindReader.currentPage + 1;
+//         console.log('Reveal');
+//     }
+// });
+
+
+
     //click Event Listeners for buttons grButton and nrButton
     
-    if (document.getElementById("grButton") !== null){
-    //Click Event Listener for grButton
-    document.getElementById("grButton").addEventListener('click', () => {
+// function grButtonClick() {
+//     //Click Event Listener for grButton
+//     document.getElementById("grButton").addEventListener('click', () => {
         
-        if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Go'){
-            mindReader.currentPage = mindReader.currentPage + 1;
-            Update();
-        }
-        if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Refresh'){
-            Update();
-        }
-    });
-    }
 
-    if (document.getElementById("nrButton") !== null){
-    //click Event Listener for nrButton
-    document.getElementById("nrButton").addEventListener('click', () => {
+//     });
+// }
+
+
+//     //click Event Listener for nrButton
+//     document.getElementById("nrButton").addEventListener('click', () => {
         
-        if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Next'){
-            mindReader.currentPage = mindReader.currentPage + 1;
-            console.log('NEXT!')
-            Update();
-        }
-        if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Reveal'){
-            mindReader.currentPage = mindReader.currentPage + 1;
-            Update();
-        }
-    });
-    }
+
+//     });
 
 
-}
