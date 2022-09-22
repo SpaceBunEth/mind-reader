@@ -119,7 +119,7 @@ We create the name and html element that will go in the body of our DOM and rela
 **EX:** <br />
 `currentPage = 0`
 ```
-pageOne {
+Object page 0 {
     
     titleText: "I can read your mind", 
     grButton: 'Go',
@@ -140,6 +140,7 @@ if key in object is equal to string 'none' dont make a html element
 
 ```
 add a id to body 'bodyid'
+select the body tag with querySelector()
 set var htmlBody to htmlelementbyid 'body'
 set object.currentPage to equal 0
 
@@ -149,6 +150,28 @@ const nrButtonElem = document.createElement('button')
 const helperTextElem = document.createElement('h3')
 const supTextElem = document.createElement('h3')
 
+
+// hold states of the pages 
+create mindReader object{
+    currentPage
+    specialSymbol
+    symArray
+    pageIndex[
+        Object page 0 {
+            titleText: "I can read your mind", 
+            grButton: 'Go',
+            nrButton: 'none',
+            helperText: 'none',
+            supText: 'none
+        }
+        object page 1
+        object page 2
+        object page 3
+        object page 4
+        object page 5
+    ]
+}
+
 run function update()
 ```
 
@@ -157,13 +180,20 @@ run function update()
 UPDATE()
 
 ```
-htmlBody.appendchild('')
+//Needs to happen 5 times for each key in the objects page.
 
+If Object MindReader => PageIndex Arry => Object Page 0[currentPage value] => Key TitleText 
+    Is equal to 'none'
+    Do not appendchild html element
+Else
+    htmlbody.appendchild(titleTextElem)
+    titleTextElem.setAttribute('id', 'titleText')
+    document.getElementById("titleText").innerHTML = The value of Object MindReader => PageIndex Arry => Object Page 0[currentPage value] => Key TitleText;
+```
+Two click Event listeners will need to be added inorder to help change or refresh the page, however depending on the state of the buttons sometimes the button will change the page other times it will only refresh the page. We can call a function after the 'click' that will contain a if else statement that reads the state of the button for the current page then either + 1 to currentPage value then runs Update() or simply run update keeping the currentPage value the same.
 
-
-
-
-
+ClickEventlistener for grButton same code for nrButton
 ```
 
-
+```
+#### Helper functions

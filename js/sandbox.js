@@ -6,7 +6,7 @@ function spacebun() {
     const elemDiv = document.createElement('div');
     bodyHTML.appendChild(elemDiv)
     elemDiv.setAttribute('id', 'div-id')
-    const editDiv = document.getElementById("div-id").innerHTML = "New text!";
+    document.getElementById("div-id").innerHTML = "New text!";
     console.log('test')
 };
 
