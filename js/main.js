@@ -168,20 +168,44 @@ function nrButtonClick() {
 // Not the same as pseudo had to add another var and change some logic
 function rndNum() {
     for (let i = 0; i < 91; i++){// repeats 100 times
-        const holderNumber = Math.round(Math.random() * mindReader.symArray.length); // get a random number rang from 0 to the .length of symArray,
-        const holderSymbol = mindReader.symArray[holderNumber]; 
+        let holderNumber = Math.round(Math.random() * mindReader.symArray.length); // get a random number rang from 0 to the .length of symArray,
+        let holderSymbol = mindReader.symArray[holderNumber]; 
         while (holderSymbol == undefined){ // had and issue of getting 'undefined' values in array used to while to fix that.
-            const holderNumber = Math.round(Math.random() * mindReader.symArray.length); // get a random number rang from 0 to the .length of symArray,
-            const holderSymbol = mindReader.symArray[holderNumber];
+            console.log(holderNumber, holderSymbol);
+            holderNumber = Math.round(Math.random() * mindReader.symArray.length); // get a random number rang from 0 to the .length of symArray,
+            holderSymbol = mindReader.symArray[holderNumber];
         }
         mindReader.symArray.push(holderSymbol); // adds the new random symbol to the array
     }
 }
 
 // Mulitples of Nine Helper Function
+mindReader.pageIndex[5].titleText = mindReader.specialSymbol;
 
 // Replace mulitples of 9 in mindReader.symArray with mindReader.specialSymbol
 
+function replaceNines() {
+    for (let i = 0; i < 99; i++){
+        if (i % 9 == 0 || i == 0){ // if i is a multiple of 9 or equal to 0
+            mindReader.symArray[i] = mindReader.specialSymbol;
+            console.log('Changed Index Content', i, mindReader.symArray[i]);
+        } else {
+            console.log('No Change')
+        }
+    }
+}
+
+
+/* Call function replaceNines{
+    for (let i = 0; i < 99; i++){
+        if (symArray[i] % 9 == 0 || i == 0){
+            symArray[i] = SpecialSymbol;
+        } else {
+            do nothing
+        }
+
+    }
+}*/
 
 
 
