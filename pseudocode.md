@@ -224,10 +224,29 @@ Now we have to replace all symArray index numbers that are mulitples of 9 with o
 We can do this by use the % operator in Javascript, which outputs the remainder of two Numbers. First number would be 9, second Number will be a (symArray Index Number). We could hardcode for all mulitples of 9 to be prestored and use a number of if statements but a loop 0-99 with a if 9%indexvalue == 0 then replace content of indexvalue with specialSymbol. Will be less code and easier to write.
 
 **RandomNumberFunc**
+
+This is re-assigning the value of symArray in our MindReader Obj
 ```
-Call function RandomNumber{
-    const holderSymbol = Math.floor(Math.random() * symArray.lendth);
-    add holderSymbol to symArray; 
+Call function randomNumber {
+    for (let i = 0; i < 100; i++){
+        const holderSymbol = Math.floor(Math.random() * symArray.lendth);
+        add holderSymbol to symArray; symArray.push(holderSymbol)
+    }
+}
+```
+
+Replace the symArray index's content, of indexes that are mulitples of 9 with specialSymbol.
+
+```
+Call function replaceNines{
+    for (let i = 0; i < 99; i++){
+        if (symArray[i] % 9 == 0 || i == 0){
+            symArray[i] = SpecialSymbol;
+        } else {
+            do nothing
+        }
+
+    }
 }
 ```
 
