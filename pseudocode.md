@@ -180,7 +180,7 @@ run function update()
 UPDATE()
 
 ```
-//Needs to happen 6 times for each key in the objects page.
+//Needs to happen 5 times for each key in the objects page.
 
 If Object MindReader => PageIndex Arry => Object Page 0[currentPage value] => Key TitleText 
     Is equal to 'none'
