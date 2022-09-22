@@ -62,8 +62,6 @@ const mindReader = {
     ]
 
 }
-//set currentPage = 0 Which is our pageOne object state
-mindReader.currentPage = 0;
 
 //Update DOM State 
 function Update() {
@@ -84,6 +82,7 @@ function Update() {
         htmlBody.appendChild(nrButtonElem);
         nrButtonElem.setAttribute('id','nrButton');
         document.getElementById('nrButton').innerHTML = mindReader.pageIndex[mindReader.currentPage].nrButton;
+        document.getElementById('grButton').addEventListener('click', nrButtonClick);
     }
     if (mindReader.pageIndex[mindReader.currentPage].helperText == 'none') {
         clearDom('helperText');
@@ -105,6 +104,8 @@ function Update() {
         htmlBody.appendChild(grButtonElem);
         grButtonElem.setAttribute('id','grButton');
         document.getElementById('grButton').innerHTML = mindReader.pageIndex[mindReader.currentPage].grButton;
+        document.getElementById('grButton').addEventListener('click', grButtonClick);
+
     }
 }
 
@@ -120,53 +121,22 @@ function clearDom(elementId) {
     }
 }
 
+//set currentPage = 0 Which is our pageOne object state
+mindReader.currentPage = 0;
 
+function grButtonClick() {
+    console.log('hello grButon');
+    document.getElementById('grButton').removeEventListener;
+    console.log('end event grButton');
+    Update();
+}
+
+function nrButtonClick() {
+    console.log('hello nrButton');
+    document.getElementById('grButton').removeEventListener('click', nrButtonClick);
+    console.log('end event nrButton');
+    Update();
+}
 
 Update();
-
-// function manageUpdate() {
-//     Update();
-// }
-
-
-// document.getElementById('grButton').addEventListener('click', () => {
-//     if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Go'){
-//         mindReader.currentPage = mindReader.currentPage + 1;
-//         manageUpdate();
-//     }
-//     if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Refresh'){
-//         manageUpdate();
-//     }
-// });
-
-// document.getElementById('nrButton').addEventListener('click', () => {
-//     if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Next'){
-//         mindReader.currentPage = mindReader.currentPage + 1;
-//         console.log('NEXT!');
-//     }
-//     if (mindReader.pageIndex[mindReader.currentPage].grButton == 'Reveal'){
-//         mindReader.currentPage = mindReader.currentPage + 1;
-//         console.log('Reveal');
-//     }
-// });
-
-
-
-    //click Event Listeners for buttons grButton and nrButton
-    
-// function grButtonClick() {
-//     //Click Event Listener for grButton
-//     document.getElementById("grButton").addEventListener('click', () => {
-        
-
-//     });
-// }
-
-
-//     //click Event Listener for nrButton
-//     document.getElementById("nrButton").addEventListener('click', () => {
-        
-
-//     });
-
 
