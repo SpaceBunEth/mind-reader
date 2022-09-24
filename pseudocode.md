@@ -261,7 +261,11 @@ Since we have already defined our elements and aplied a custome id to them it sh
 
 We could even go as far as placing our createhtmlelements in our mindReader object along with our setAttributes to make calling and creating them much easier. BUT we will save that idea for another time.
 
-However it will be necessary to added our bootstrap classes as a state to our mindReader.pageIndex[currentPage].Page# object. By setting our Bootstrap class to a object key. Changing styles will be much more easier to test and run then playing in our already working Functions.
+However it will be necessary to added our bootstrap classes as a state to our mindReader.pageIndex[currentPage].Page# object. By setting our Bootstrap class to a object key. Changing styles will be much more easier to test and run then playing with our already working Functions.
+
+We will need to add one line of code to our Update() function if else statements for each UI state. Since we've already named our html elements id's after their respective Object key name. We can call our html elements by id and set a 'class' attribute. 
+
+
 
 
 ### To-Do
